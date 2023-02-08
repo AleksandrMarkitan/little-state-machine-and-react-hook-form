@@ -20,7 +20,7 @@ export function Button() {
   return <button onClick={clickHandler}>Change Change</button>;
 }
 
-export function BlockingButton() {
+export function BlockingButton({ notify }) {
   const {
     state: {
       yourDetail: { blocking },
@@ -32,6 +32,7 @@ export function BlockingButton() {
     actions.toggleBlocking({
       blocking: !blocking,
     });
+    notify();
   };
 
   return (

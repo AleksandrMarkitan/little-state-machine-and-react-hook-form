@@ -5,7 +5,7 @@ import "react-block-ui/style.css";
 
 import { Button, BlockingButton } from "../components/Button";
 
-export function ButtonBlock() {
+export function ButtonBlock({ notify }) {
   const {
     state: {
       yourDetail: { buttonClickCounter, blocking },
@@ -25,7 +25,7 @@ export function ButtonBlock() {
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </BlockUi>
-        <BlockingButton />
+        <BlockingButton notify={notify} />
       </div>
     </div>
   );

@@ -1,9 +1,12 @@
 import "./App.css";
 
 import { StateMachineProvider, createStore } from "little-state-machine";
+import toast, { Toaster } from "react-hot-toast";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import { FormBlock } from "./components/FormBlock";
 import { ButtonBlock } from "./components/ButtonBlock";
+import { ReactQueryExample } from "./components/ReactQueryExample";
 
 createStore({
   yourDetail: {
@@ -15,10 +18,17 @@ createStore({
   },
 });
 
+const notify = () => toast("Here is your toast.");
+const queryClient = new QueryClient();
+
 const App = () => (
   <StateMachineProvider>
-    <FormBlock />
-    <ButtonBlock />
+    <QueryClientProvider client={queryClient}>
+      <FormBlock />
+      <ButtonBlock notify={notify} />
+      <ReactQueryExample />
+      <Toaster />
+    </QueryClientProvider>
   </StateMachineProvider>
 );
 
