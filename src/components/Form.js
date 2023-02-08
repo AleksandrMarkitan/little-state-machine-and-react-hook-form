@@ -20,7 +20,7 @@ export function Form() {
   };
 
   return (
-    <form onChange={handleSubmit((data) => onSubmit(data))}>
+    <form onSubmit={handleSubmit((data) => onSubmit(data))}>
       <input
         {...register("firstName")}
         defaultValue={state.yourDetail.firstName}
@@ -30,7 +30,7 @@ export function Form() {
         defaultValue={state.yourDetail.lastName}
       />
       {errors.lastName && <p>Last name is required.</p>}
-      <input {...register("age", { pattern: /\d+/ })} />
+      <input {...register("age", { pattern: /\d+/, required: true })} />
       {errors.age && <p>Please enter number for age.</p>}
       <input type="submit" />
     </form>

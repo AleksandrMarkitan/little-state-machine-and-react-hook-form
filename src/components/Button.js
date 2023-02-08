@@ -1,6 +1,7 @@
 import { useStateMachine } from "little-state-machine";
 
 import { changeButtonCounter } from "../actions/changeButtonCounter";
+import { toggleBlocking } from "../actions/toggleBlocking";
 
 export function Button() {
   const {
@@ -17,4 +18,25 @@ export function Button() {
   };
 
   return <button onClick={clickHandler}>Change Change</button>;
+}
+
+export function BlockingButton() {
+  const {
+    state: {
+      yourDetail: { blocking },
+    },
+    actions,
+  } = useStateMachine({ toggleBlocking });
+
+  const clickHandler = () => {
+    actions.toggleBlocking({
+      blocking: !blocking,
+    });
+  };
+
+  return (
+    <button onClick={clickHandler} color="tomato">
+      Toggle Block
+    </button>
+  );
 }

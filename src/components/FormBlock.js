@@ -8,7 +8,6 @@ export function FormBlock() {
       yourDetail: { firstName, lastName, age, submitCounter },
     },
   } = useStateMachine();
-
   return (
     <div>
       <Form />

@@ -11,6 +11,7 @@ createStore({
     lastName: "testest",
     submitCounter: 0,
     buttonClickCounter: 0,
+    blocking: false,
   },
 });
 
